@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIRA | English Assignment</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#080b18;
+  color:white;
+  line-height:1.7;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 7%;
+  background:rgba(8,11,24,.85);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+.logo span{
+  color:#4de4ff;
+}
+
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#5ce7ff;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px 70px;
+  background:
+    radial-gradient(circle at 20% 20%,#7147e955,transparent 30%),
+    radial-gradient(circle at 80% 30%,#18cce333,transparent 30%),
+    #080b18;
+}
+
+.hero h1{
+  font-size:clamp(75px,15vw,160px);
+  letter-spacing:-7px;
+  margin-bottom:20px;
+  background:linear-gradient(120deg,#fff,#a99cff,#51e7ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero h2{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.hero p{
+  max-width:700px;
+  margin:auto;
+  color:#aeb5ca;
+  font-size:17px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 25px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#7856eb,#4a9cff);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 15px 40px #6045db55;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+}
+
+section{
+  padding:100px 7%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title small{
+  color:#58e6ff;
+  letter-spacing:2px;
+}
+
+.title h2{
+  font-size:42px;
+  margin-top:8px;
+}
+
+.about{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.profile{
+  height:380px;
+  border-radius:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#ffffff14,#ffffff05);
+  border:1px solid #ffffff18;
+  box-shadow:0 30px 80px #0008;
+}
+
+.avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:75px;
+  font-weight:bold;
+  background:linear-gradient(135deg,#7856eb,#55e2f5);
+  box-shadow:0 25px 70px #0008;
+}
+
+.about-text h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.about-text p{
+  color:#aab1c5;
+  margin-bottom:15px;
+}
+
+.cards{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.card{
+  padding:30px;
+  min-height:240px;
+  border-radius:23px;
+  background:linear-gradient(145deg,#ffffff12,#ffffff04);
+  border:1px solid #ffffff16;
+  box-shadow:0 25px 60px #0008;
+  transition:.35s;
+}
+
+.card:hover{
+  transform:perspective(900px) rotateX(3deg) rotateY(-4deg) translateY(-10px);
+  border-color:#8165ed88;
+}
+
+.icon{
+  width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:linear-gradient(135deg,#7856eb55,#4de4ff33);
+  font-size:23px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#a6aec3;
+  font-size:14px;
+}
+
+.contact{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+  padding:65px 25px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#7856eb2e,#4de4ff0d);
+  border:1px solid #ffffff18;
+  box-shadow:0 30px 80px #0008;
+}
+
+.contact p{
+  color:#aeb5c9;
+}
+
+.phone{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 25px;
+  border-radius:12px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  background:linear-gradient(135deg,#7856eb,#4a9cff);
+}
+
+footer{
+  padding:30px;
+  text-align:center;
+  color:#8189a1;
+  border-top:1px solid #ffffff12;
+}
+
+@media(max-width:800px){
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    padding:18px 5%;
+  }
+
+  nav a{
+    margin-left:10px;
+    font-size:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">HI<span>RA</span></div>
+
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#assignment">Assignment</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div>
+    <h1>HIRA</h1>
+
+    <h2>English Assignment Portfolio</h2>
+
+    <p>
+      A professional academic website created to present
+      English language, communication, education and learning
+      in a modern digital format.
+    </p>
+
+    <a href="#assignment" class="btn">
+      Explore Assignment
+    </a>
+  </div>
+</section>
+
+<section id="about">
+
+  <div class="title">
+    <small>STUDENT PROFILE</small>
+    <h2>About Hira</h2>
+  </div>
+
+  <div class="about">
+
+    <div class="profile">
+      <div class="avatar">H</div>
+    </div>
+
+    <div class="about-text">
+      <h2>Welcome to Hira's Website</h2>
+
+      <p>
+        This website has been created as an English assignment
+        project. It presents academic information in a clean,
+        creative and professional digital format.
+      </p>
+
+      <p>
+        The project demonstrates modern web design while
+        presenting important topics related to English,
+        communication and education.
+      </p>
+
+      <p><strong>Owner:</strong> Hira</p>
+      <p><strong>Subject:</strong> English</p>
+      <p><strong>Project:</strong> Assignment Website</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="assignment">
+
+  <div class="title">
+    <small>ACADEMIC WORK</small>
+    <h2>English Assignment</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="icon">Aa</div>
+      <h3>English Language</h3>
+      <p>
+        English is widely used for education, communication,
+        business, technology and international interaction.
+        Learning English helps students express their ideas
+        clearly and confidently.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">◇</div>
+      <h3>Communication</h3>
+      <p>
+        Effective communication means sharing ideas clearly
+        and listening carefully to others. Communication skills
+        are important in education and professional life.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✦</div>
+      <h3>Education</h3>
+      <p>
+        Education develops knowledge, creativity, confidence
+        and problem-solving skills. It helps students prepare
+        for future opportunities.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✓</div>
+      <h3>Learning Skills</h3>
+      <p>
+        Reading, writing, listening, speaking, research and
+        critical thinking are important skills for successful
+        learning.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">◎</div>
+      <h3>Conclusion</h3>
+      <p>
+        English plays an important role in modern education
+        and communication. Strong language skills help students
+        connect with people around the world.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">★</div>
+      <h3>Thank You</h3>
+      <p>
+        Thank you for visiting Hira's English assignment
+        website. This project is presented in a creative
+        and professional digital format.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+
+  <div class="contact">
+
+    <div class="title">
+      <small>GET IN TOUCH</small>
+      <h2>Contact Hira</h2>
+    </div>
+
+    <p>
+      For information about this assignment,
+      please contact the owner.
+    </p>
+
+    <a class="phone" href="tel:03436698354">
+      ☎ 0343 6698354
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Hira • English Assignment Website
+</footer>
+
+</body>
+  </html>
